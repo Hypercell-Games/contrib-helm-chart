@@ -133,7 +133,8 @@ Shared environment block used across each component.
 {{- end }}
 {{- range $key, $value := .Values.envValueFrom }}
 - name: {{ $key }}
-  valueFrom: {{ toYaml $value | nindent 4 }}
+  valueFrom:
+{{ toYaml $value | indent 4 }}
 {{- end }}
 ## Start primary Redash configuration
 {{- if not .Values.redash.selfManagedSecrets }}

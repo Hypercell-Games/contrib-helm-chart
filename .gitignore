@@ -1,5 +1,8 @@
+# IDE files
+.idea
+.vscode
+*.iml
+
 charts/**/charts
 keys
 my-values.yaml
-.idea
-.vscode

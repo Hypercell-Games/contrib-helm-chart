@@ -20,6 +20,8 @@ env:
   PYTHONUNBUFFERED: 0
   REDASH_PRODUCTION: "true"
 
+envFrom: []
+
 # initContainers -- Redash global init containers
 initContainers: []
 
@@ -321,8 +323,8 @@ server:
     periodSeconds: 10
     successThreshold: 1
     failureThreshold: 10
-  
-  # server.readinessProbe -- Server readiness probe configuration 
+
+  # server.readinessProbe -- Server readiness probe configuration
   readinessProbe:
     initialDelaySeconds: 10
     timeoutSeconds: 1

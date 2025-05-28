@@ -20,7 +20,7 @@ env:
   PYTHONUNBUFFERED: 0
   REDASH_PRODUCTION: "true"
 
-envFrom: []
+envValueFrom: []
 
 # initContainers -- Redash global init containers
 initContainers: []

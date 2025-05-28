@@ -131,7 +131,7 @@ Shared environment block used across each component.
 - name: {{ $key }}
   value: {{ $value | quote }}
 {{- end }}
-{{- range $key, $value := .Values.envFrom }}
+{{- range $key, $value := .Values.envValueFrom }}
 - name: {{ $key }}
   valueFrom: {{ toYaml $value | nindent 4 }}
 {{- end }}

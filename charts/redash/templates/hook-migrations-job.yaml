@@ -44,6 +44,7 @@ spec:
         env:
         {{- $envCtx := mergeOverwrite (deepCopy .) (dict "Values" (dict "env" .Values.migrations.env)) -}}
         {{- include "redash.env" $envCtx | nindent 10 }}
+        {{- include "redash.envValueFrom" $envCtx | nindent 10 }}
         {{- if (include "redash.envFrom" .) }}
         envFrom:
         {{- include "redash.envFrom" . | nindent 10 }}

@@ -131,11 +131,6 @@ Shared environment block used across each component.
 - name: {{ $key }}
   value: {{ $value | quote }}
 {{- end }}
-{{- range $key, $value := .Values.envValueFrom }}
-- name: {{ $key }}
-  valueFrom:
-{{ toYaml $value | indent 4 }}
-{{- end }}
 ## Start primary Redash configuration
 {{- if not .Values.redash.selfManagedSecrets }}
 {{- if or .Values.redash.secretKey .Values.redash.existingSecret }}
@@ -503,6 +498,14 @@ Shared environment block used across each component.
   value: {{ quote . }}
 {{- end }}
 ## End primary Redash configuration
+{{- end -}}
+
+{{- define "redash.envValueFrom" -}}
+{{- range $key, $value := .Values.envValueFrom }}
+- name: {{ $key }}
+  valueFrom:
+{{ toYaml $value | indent 4 }}
+{{- end }}
 {{- end -}}
 
 {{/*
